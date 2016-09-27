@@ -1,0 +1,29 @@
+<h1>Edit: {{listItem.title}}</h1>
+<form>
+  <fieldset class="form-group">
+    <label for="title" style="font-weight:bold;text-decoration:underline;">Title</label>
+    <input class="form-control" type="text" id="title" name="title" ng-model="listItem.title">
+  </fieldset>
+
+  <fieldset class="form-group">
+    <label for="title">Category</label>
+    <select ng-options="category.id as category.name for category in categories" ng-model="listItem.categoryId"></select>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <label for="title">User</label>
+    <select ng-options="user.id as user.name for user in users" ng-model="listItem.userId"></select>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <label for="description" style="font-weight:bold;text-decoration:underline;">Description</label>
+    <input class="form-control" type="text" id="description" name="description" ng-model="listItem.description">
+  </fieldset>
+
+  <fieldset class="form-group">
+    <label for="content" style="font-weight:bold;text-decoration:underline;">Content</label>
+    <textarea class="form-control" type="text" id="content" name="content" ng-model="listItem.content"></textarea>
+  </fieldset>
+
+  <input type="submit" value="{{isSubmitting ? 'saving...' : 'Save'}}" class="btn btn-default" ng-click="saveListItem(listItem)" ng-disabled="isSubmitting">
+</form>

@@ -1,0 +1,11 @@
+<h1>To Do Items</h1>
+<div class="form-group">
+  Search: <input type='text' ng-model="search.input.$">
+</div>
+<nw-category-selector ng-model="search.category"></nw-category-selector>
+
+<div class="row">
+  <div ng-repeat="note in listItems | categoryFilter:search.category | filter:search.input" class="col-sm-6">
+    <h3><a title="{{note.user.name}}" ng-href="#/listItems/{{note.id}}" ng-style="getStyle(note)">{{note.title}}</a></h3>
+    <p>{{note.description}}</p>
+    <p><span class="label label-info">{{note.category.name}}</span></p>
